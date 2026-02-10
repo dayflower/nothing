@@ -39,3 +39,20 @@ Update these values in `BuildSupport/Info.plist`:
 
 - `CFBundleShortVersionString`
 - `CFBundleVersion`
+
+## GitHub Release automation
+
+This repository includes `.github/workflows/release.yml`.
+
+- Trigger: push a tag matching `v*` (for example: `v0.1.0`)
+- Build: runs `./BuildSupport/make_app.sh release` on `macos-14`
+- Release assets:
+  - `NothingStatusBar-macOS.zip`
+  - `NothingStatusBar-macOS.zip.sha256`
+
+### Publish a new release
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
